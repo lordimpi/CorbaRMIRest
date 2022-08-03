@@ -1,5 +1,12 @@
 /Common/nbproject/private/
 /Common/build/
 /Common/dist/
+<<<<<<< HEAD
 /Cliente/nbproject/
 /ClienteAdministrador/nbproject/
+=======
+/Commons/target/
+/ServidorCanciones/target/
+/ClienteAdministrador/target/
+/Cliente/target/
+>>>>>>> santiago

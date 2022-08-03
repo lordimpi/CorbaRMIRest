@@ -1,9 +1,10 @@
 package cliente.servicios;
 
 import cliente.controladores.AdminitradorCallbackImpl;
-import cliente.utilidades.UtilidadesRegistroC;
 import java.rmi.RemoteException;
 import servidor.controladores.ControladorGestionAdministradoresInt;
+import utilidades.UtilidadesConsola;
+import utilidades.UtilidadesRegistroC;
 
 public class ClienteDeObjetos {
 
@@ -15,9 +16,9 @@ public class ClienteDeObjetos {
         String direccionIpRMIRegistry = "";
 
         System.out.println("Cual es el la dirección ip donde se encuentra  el rmiregistry ");
-        direccionIpRMIRegistry = cliente.utilidades.UtilidadesConsola.leerCadena();
+        direccionIpRMIRegistry = UtilidadesConsola.leerCadena();
         System.out.println("Cual es el número de puerto por el cual escucha el rmiregistry ");
-        numPuertoRMIRegistry = cliente.utilidades.UtilidadesConsola.leerEntero();
+        numPuertoRMIRegistry = UtilidadesConsola.leerEntero();
 
         objRemoto = (ControladorGestionAdministradoresInt) UtilidadesRegistroC.obtenerObjRemoto(direccionIpRMIRegistry,
                 numPuertoRMIRegistry, "objServicioGestionAdministradores");

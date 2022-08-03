@@ -1,13 +1,13 @@
 package cliente.vista;
 
-import cliente.utilidades.UtilidadesAudio;
-import static cliente.utilidades.UtilidadesAudio.identificarExtencion;
-import cliente.utilidades.UtilidadesConsola;
+import interfaces.ControladorGestorCancionInt;
 import java.io.File;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import servidor.DTO.CancionDTO;
-import servidor.controladores.ControladorGestorCancionInt;
+import utilidades.UtilidadesAudio;
+import static utilidades.UtilidadesAudio.identificarExtencion;
+import utilidades.UtilidadesConsola;
 
 public class Menu {
 

@@ -1,5 +1,6 @@
 package cliente.controladores;
 
+import interfaces.AdministradorCallbackInt;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import servidor.DTO.NotificacionDTO;

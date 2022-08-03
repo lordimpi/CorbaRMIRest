@@ -1,6 +1,7 @@
 package servidor.controladores;
 
-import cliente.controladores.AdministradorCallbackInt;
+import interfaces.AdministradorCallbackInt;
+import interfaces.ControladorGestionAdministradoresInt;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;

@@ -1,6 +1,5 @@
-package servidor.controladores;
+package interfaces;
 
-import cliente.controladores.AdministradorCallbackInt;
 import java.rmi.RemoteException;
 import java.rmi.Remote;
 

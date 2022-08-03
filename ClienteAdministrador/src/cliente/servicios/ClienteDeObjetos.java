@@ -1,8 +1,8 @@
 package cliente.servicios;
 
 import cliente.controladores.AdminitradorCallbackImpl;
+import interfaces.ControladorGestionAdministradoresInt;
 import java.rmi.RemoteException;
-import servidor.controladores.ControladorGestionAdministradoresInt;
 import utilidades.UtilidadesConsola;
 import utilidades.UtilidadesRegistroC;
 

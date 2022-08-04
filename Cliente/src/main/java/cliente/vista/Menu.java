@@ -4,6 +4,8 @@ import interfaces.ControladorGestorCancionInt;
 import java.io.File;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import models.Usuario;
+import servicios.UsuarioServices;
 import servidor.DTO.CancionDTO;
 import utilidades.UtilidadesAudio;
 import static utilidades.UtilidadesAudio.identificarExtencion;
@@ -12,6 +14,8 @@ import utilidades.UtilidadesConsola;
 public class Menu {
 
     private final ControladorGestorCancionInt objRemoto;
+    private final UsuarioServices objUsuarioServices = new UsuarioServices();
+    private Usuario objUsuario;
 
     public Menu(ControladorGestorCancionInt objRemoto) {
         this.objRemoto = objRemoto;
@@ -20,10 +24,12 @@ public class Menu {
     public void ejecutarMenuPrincipal() {
         int opcion = 0;
         do {
-            System.out.println("==Menu==");
-            System.out.println("1. Registrar Cancion");
-            System.out.println("2. Listar Canciones");
-            System.out.println("3. Salir");
+            System.out.println("\t===Menu===");
+            System.out.println("1. Registrase en el servidor de usuarios");
+            System.out.println("2. Iniciar sesion");
+            System.out.println("3. Ingresar y enviar datos de la cancion");
+            System.out.println("4. Listar datos de las canciones registradas");
+            System.out.println("5. Salir");
 
             opcion = UtilidadesConsola.leerEntero();
 
@@ -33,15 +39,58 @@ public class Menu {
                 case 2 ->
                     Opcion2();
                 case 3 ->
+                    Opcion3();
+                case 4 ->
+                    Opcion4();
+                case 5 ->
                     System.out.println("Salir...");
                 default ->
                     System.out.println("Opción incorrecta");
             }
 
-        } while (opcion != 3);
+        } while (opcion != 5);
     }
 
     private void Opcion1() {
+        objUsuario = new Usuario();
+        System.out.println("\nRegistrando un nuevo Usuario");
+        System.out.println("Ingrese el nombre: ");
+        objUsuario.setNombre(UtilidadesConsola.leerCadena());
+        System.out.println("Ingrese el apellido: ");
+        objUsuario.setApellido(UtilidadesConsola.leerCadena());
+        System.out.println("Ingrese el correo: ");
+        objUsuario.setEmail(UtilidadesConsola.leerCadena());
+        System.out.println("Ingrese la contraseña: ");
+        objUsuario.setContraseña(UtilidadesConsola.leerCadena());
+        if (objUsuarioServices.registrarUsuario(objUsuario) == null) {
+            System.out.println("No se pudo registrar el usuario...\n");
+            return;
+        }
+        System.out.println("Usuario registrado con exito.\n");
+    }
+
+    private void Opcion2() {
+        objUsuario = new Usuario();
+        System.out.println("\nLogin");
+        System.out.println("Ingrese el correo: ");
+        objUsuario.setEmail(UtilidadesConsola.leerCadena());
+        System.out.println("Ingrese la contraseña: ");
+        objUsuario.setContraseña(UtilidadesConsola.leerCadena());
+        objUsuario = objUsuarioServices.Login(objUsuario);
+        if (objUsuario == null) {
+            System.out.println("Usuario o Contraseña invalidas...");
+            return;
+        }
+        System.out.println("Bienvenido: " + objUsuario.getNombre() + "\n");
+    }
+
+    private void Opcion3() {
+
+        if (objUsuario == null) {
+            System.out.println("No ha iniciado sesion...");
+            return;
+        }
+
         try {
             System.out.println("Ingrese el nombre de la canción: ");
             String nombrecancion = UtilidadesConsola.leerCadena();
@@ -55,7 +104,7 @@ public class Menu {
                         byte[] arrayBytesCancion = UtilidadesAudio.obtenerBytesCancion(nombrecancion);
                         objCancion.setArrayBytes(arrayBytesCancion);
 
-                        boolean valor = objRemoto.registrarCancion(objCancion);//invocación del método remoto
+                        boolean valor = objRemoto.registrarCancion(objCancion, objUsuario.getToken());//invocación del método remoto
                         if (valor) {
                             System.out.println("Registro realizado satisfactoriamente...");
                         } else {
@@ -73,7 +122,13 @@ public class Menu {
         }
     }
 
-    private void Opcion2() {
+    private void Opcion4() {
+
+        if (objUsuario == null) {
+            System.out.println("No ha iniciado sesion...");
+            return;
+        }
+
         try {
 
             ArrayList<CancionDTO> canciones = objRemoto.listarCanciones();

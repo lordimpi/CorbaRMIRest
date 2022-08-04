@@ -8,16 +8,20 @@ public interface IUsuarioService {
 
 	public List<Usuario> findAll();
 
-	public Usuario findById(Integer id);
+	public Usuario findById(String id);
 
 	public Usuario save(Usuario cliente);
 
-	public Usuario update(Integer id, Usuario cliente);
+	public Usuario update(String id, Usuario cliente);
 
-	public boolean delete(Integer id);
+	public boolean delete(String id);
 
-	public boolean Registrar(Usuario nuevoUsuario);
+	public Usuario Registrar(Usuario nuevoUsuario);
+
+	public Usuario Login(String email, String contraseña);
 	
+	public boolean ValidarToken(String token);
+
 	public boolean ExisteEmail(String email);
 
 }

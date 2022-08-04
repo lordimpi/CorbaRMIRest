@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Usuario {
 
-    private Integer id;
+    private String id;
     private String nombre;
     private String apellido;
     private String email;
@@ -15,7 +15,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nombre, String apellido, String email,
+    public Usuario(String id, String nombre, String apellido, String email,
             Date createAt, String token, String contraseña) {
         this.id = id;
         this.nombre = nombre;
@@ -42,11 +42,11 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

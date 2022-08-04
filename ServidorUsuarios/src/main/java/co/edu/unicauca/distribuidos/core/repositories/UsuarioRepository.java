@@ -3,6 +3,7 @@ package co.edu.unicauca.distribuidos.core.repositories;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class UsuarioRepository {
 		return this.listaDeUsuarios;
 	}
 
-	public Usuario findById(Integer id) {
+	public Usuario findById(String id) {
 		System.out.println("Invocando a consultar un cliente");
 		Usuario objCliente = null;
 
@@ -47,7 +48,7 @@ public class UsuarioRepository {
 		return objCliente;
 	}
 
-	public Usuario update(Integer id, Usuario cliente) {
+	public Usuario update(String id, Usuario cliente) {
 		System.out.println("Invocando a actualizar un cliente");
 		Usuario objCliente = null;
 
@@ -62,7 +63,7 @@ public class UsuarioRepository {
 		return objCliente;
 	}
 
-	public boolean delete(Integer id) {
+	public boolean delete(String id) {
 		System.out.println("Invocando a eliminar un cliente");
 		boolean bandera = false;
 
@@ -77,14 +78,28 @@ public class UsuarioRepository {
 		return bandera;
 	}
 
-	public boolean Registrar(Usuario nuevoUsuario){
-		System.out.println("Invoando a registrar usuario");
+	public Usuario Registrar(Usuario nuevoUsuario){
+		System.out.println("Invocando a registrar usuario");
 		if (ExisteEmail(nuevoUsuario.getEmail())) {
 			System.out.println("Ya existe un usuario con el email ingresado");
-			return false;
+			return null;
 		}
+		nuevoUsuario.setId(UUID.randomUUID().toString());
+		nuevoUsuario.setToken(UUID.randomUUID().toString());
+		nuevoUsuario.setCreateAt(new Date());
 		listaDeUsuarios.add(nuevoUsuario);
-		return true;
+		return nuevoUsuario;
+	}
+
+	public Usuario Login(String email, String contraseña){
+		System.out.println("Invocando a Login");
+		Usuario user = null;
+		for (Usuario item : listaDeUsuarios) {
+			if (item.getEmail().equals(email) && item.getContraseña().equals(contraseña)) {
+				user = item;
+			}
+		}
+		return user;
 	}
 
 	public boolean ExisteEmail(String email){
@@ -96,12 +111,21 @@ public class UsuarioRepository {
 		return false;
 	}
 
+	public boolean ValidarToken(String token){
+		for (Usuario item : listaDeUsuarios) {
+			if (item.getToken().equals(token)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	private void cargarClientes() {
-		Usuario objCliente1 = new Usuario(1, "Juan", "Perez", "juan@unicauca.edu.co", new Date(), "abc123","oracle");
+		Usuario objCliente1 = new Usuario(UUID.randomUUID().toString(), "Juan", "Perez", "juan@unicauca.edu.co", new Date(),UUID.randomUUID().toString(),"oracle");
 		this.listaDeUsuarios.add(objCliente1);
-		Usuario objCliente2 = new Usuario(2, "Catalina", "Lopez", "catalina@unicauca.edu.co", new Date(),"abc124","oracle");
+		Usuario objCliente2 = new Usuario(UUID.randomUUID().toString(), "Catalina", "Lopez", "catalina@unicauca.edu.co", new Date(),UUID.randomUUID().toString(),"oracle");
 		this.listaDeUsuarios.add(objCliente2);
-		Usuario objCliente3 = new Usuario(3, "Sandra", "Sanchez", "Sandra@unicauca.edu.co", new Date(), "abc125","oracle");
+		Usuario objCliente3 = new Usuario(UUID.randomUUID().toString(), "Sandra", "Sanchez", "Sandra@unicauca.edu.co", new Date(), UUID.randomUUID().toString(),"oracle");
 		this.listaDeUsuarios.add(objCliente3);
 
 	}

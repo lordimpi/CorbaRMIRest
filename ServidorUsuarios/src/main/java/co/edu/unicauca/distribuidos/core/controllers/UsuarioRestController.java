@@ -28,15 +28,36 @@ public class UsuarioRestController {
 	private IUsuarioService usuarioService;
 
 	@PostMapping("/usuarios")
-	public boolean registrar(@RequestBody Usuario nuevoUsuario) {
-		if (!usuarioService.Registrar(nuevoUsuario)) {
+	public Usuario registrar(@RequestBody Usuario nuevoUsuario) {
+		Usuario user = usuarioService.Registrar(nuevoUsuario);
+		if (user == null) {
 			System.out.println("No se pudo registrar el usuario.");
-			return false;
+			return user;
 		}
 		System.out.println("Usuario registrado con éxito.");
-		return true;
+		return user;
 	}
 
+	@GetMapping("/usuarios/{email}/{pass}")
+	public Usuario Login(@PathVariable("email") String email, @PathVariable("pass") String pass) {
+		Usuario user = usuarioService.Login(email, pass);
+		if (user == null) {
+			System.out.println("Usuario o Contraseña invalidas...");
+			return user;
+		}
+		System.out.println("Bienvenido: " + user.getEmail());
+		return user;
+	}
+
+	@GetMapping("/usuarios/{token}")
+	public boolean ValidarToken(@PathVariable("token") String token) {
+		if (!usuarioService.ValidarToken(token)) {
+			System.out.println("Token invalido...");
+			return false;
+		}
+		System.out.println("Token valido...");
+		return true;
+	}
 
 	@GetMapping("/clientes")
 	public List<Usuario> index() {
@@ -44,7 +65,7 @@ public class UsuarioRestController {
 	}
 
 	@GetMapping("/clientes/{id}")
-	public Usuario show(@PathVariable Integer id) {
+	public Usuario show(@PathVariable String id) {
 		Usuario objCliente = null;
 		objCliente = usuarioService.findById(id);
 		return objCliente;
@@ -75,7 +96,7 @@ public class UsuarioRestController {
 	}
 
 	@PutMapping("/clientes/{id}")
-	public Usuario update(@RequestBody Usuario cliente, @PathVariable Integer id) {
+	public Usuario update(@RequestBody Usuario cliente, @PathVariable String id) {
 		Usuario objCliente = null;
 		Usuario clienteActual = usuarioService.findById(id);
 		if (clienteActual != null) {
@@ -85,7 +106,7 @@ public class UsuarioRestController {
 	}
 
 	@DeleteMapping("/clientes/{id}")
-	public Boolean delete(@PathVariable Integer id) {
+	public Boolean delete(@PathVariable String id) {
 		Boolean bandera = false;
 		Usuario clienteActual = usuarioService.findById(id);
 		if (clienteActual != null) {

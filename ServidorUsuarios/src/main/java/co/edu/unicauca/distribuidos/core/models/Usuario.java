@@ -3,7 +3,7 @@ package co.edu.unicauca.distribuidos.core.models;
 import java.util.Date;
 
 public class Usuario {
-    private Integer id;
+    private String id;
     private String nombre;
     private String apellido;
     private String email;
@@ -11,7 +11,7 @@ public class Usuario {
     private String token;
     private String contraseña;
 
-    public Usuario(Integer id, String nombre, String apellido, String email, 
+    public Usuario(String id, String nombre, String apellido, String email, 
         Date createAt, String token, String contraseña ) {
         this.id = id;
         this.nombre = nombre;
@@ -22,23 +22,17 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    // public Usuario(String email, String contraseña, String token){
-    //     this.email = email;
-    //     this.contraseña = contraseña;
-    //     this.token = token;
-    // }
-
     /**
-     * @return Integer return the id
+     * @return String return the id
      */
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

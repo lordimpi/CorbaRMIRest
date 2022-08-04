@@ -20,7 +20,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	}
 
 	@Override
-	public Usuario findById(Integer id) {
+	public Usuario findById(String id) {
 		return this.servicioAccesoBaseDatos.findById(id);
 	}
 
@@ -30,22 +30,32 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	}
 
 	@Override
-	public Usuario update(Integer id, Usuario cliente) {
+	public Usuario update(String id, Usuario cliente) {
 		return this.servicioAccesoBaseDatos.update(id, cliente);
 	}
 
 	@Override
-	public boolean delete(Integer id) {
+	public boolean delete(String id) {
 		return this.servicioAccesoBaseDatos.delete(id);
 	}
 
 	@Override
-	public boolean Registrar(Usuario nuevoUsuario) {
+	public Usuario Registrar(Usuario nuevoUsuario) {
 		return this.servicioAccesoBaseDatos.Registrar(nuevoUsuario);
 	}
 
 	@Override
 	public boolean ExisteEmail(String email) {
 		return this.servicioAccesoBaseDatos.ExisteEmail(email);
+	}
+
+	@Override
+	public Usuario Login(String email, String contraseña) {
+		return this.servicioAccesoBaseDatos.Login(email, contraseña);
+	}
+
+	@Override
+	public boolean ValidarToken(String token) {
+		return this.servicioAccesoBaseDatos.ValidarToken(token);
 	}
 }

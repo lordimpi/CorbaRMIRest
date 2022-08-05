@@ -2,7 +2,7 @@ package servidor.DTO;
 
 import java.io.Serializable;
 
-public class CancionDTO implements Serializable
+public class CancionDTOO implements Serializable
 {	
     private int id;
     private String tipo;
@@ -11,7 +11,7 @@ public class CancionDTO implements Serializable
     private int tamKB;
     private byte[] arrayBytes;
 
-    public CancionDTO(String tipo, String artista, String titulo, int tamKB) {
+    public CancionDTOO(String tipo, String artista, String titulo, int tamKB) {
         this.artista = artista;
         this.titulo = titulo;
         this.tamKB = tamKB;       

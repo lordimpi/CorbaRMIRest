@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import servicios.UsuarioServices;
-import servidor.DTO.CancionDTO;
+import servidor.DTO.CancionDTOO;
 import servidor.Repositorios.CancionRepositoryInt;
 
 public class ControladorGestorCancionesImpl extends UnicastRemoteObject implements ControladorGestorCancionInt {
@@ -21,7 +21,7 @@ public class ControladorGestorCancionesImpl extends UnicastRemoteObject implemen
     }
 
     @Override
-    public boolean registrarCancion(CancionDTO objCancion, String token) throws RemoteException {
+    public boolean registrarCancion(CancionDTOO objCancion, String token) throws RemoteException {
         boolean bandera = false;
         UsuarioServices objUsuarioService = new UsuarioServices();
         if (!objUsuarioService.ValidarToken(token)) {
@@ -32,13 +32,15 @@ public class ControladorGestorCancionesImpl extends UnicastRemoteObject implemen
         
         if (this.objCancionesRepository.registrarCancion(objCancion)) {
             bandera = true;
+            ControladorGestionCancionRespaldo objRemotoRespaldo = new ControladorGestionCancionRespaldo();
+            objRemotoRespaldo.guardarCopia(objCancion);
             this.objReferenciaRemota.notificarAdministradores(objCancion, objCancionesRepository.listarCanciones().size());
         }
         return bandera;
     }
 
     @Override
-    public ArrayList<CancionDTO> listarCanciones() throws RemoteException {
+    public ArrayList<CancionDTOO> listarCanciones() throws RemoteException {
         return this.objCancionesRepository.listarCanciones();
     }
 }

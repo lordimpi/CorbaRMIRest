@@ -1,5 +1,19 @@
-D:\Unicauca\Sistemas distribuidos\02 Laboratorio\13\CorbaRMIRest\ServidorCanciones\src\main\java\servidor\controladores\ControladorGestorCancionesImpl.java
-D:\Unicauca\Sistemas distribuidos\02 Laboratorio\13\CorbaRMIRest\ServidorCanciones\src\main\java\servidor\controladores\ControladorGestionAdministradoresImpl.java
-D:\Unicauca\Sistemas distribuidos\02 Laboratorio\13\CorbaRMIRest\ServidorCanciones\src\main\java\servidor\Repositorios\CancionRepository.java
-D:\Unicauca\Sistemas distribuidos\02 Laboratorio\13\CorbaRMIRest\ServidorCanciones\src\main\java\servidor\servicios\ServidorDeObjetos.java
-D:\Unicauca\Sistemas distribuidos\02 Laboratorio\13\CorbaRMIRest\ServidorCanciones\src\main\java\servidor\Repositorios\CancionRepositoryInt.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\servidor\controladores\ControladorGestorCancionesImpl.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\servidor\Repositorios\CancionRepositoryInt.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\servidor\Repositorios\CancionRepository.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\sop_corba\ControladorCancionIntPackage\CancionDTO.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\servidor\servicios\ServidorDeObjetos.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\sop_corba\ControladorCancionIntOperations.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\sop_corba\ControladorCancionIntPackage\ListCancionesHelper.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\servicios\UsuarioServices.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\sop_corba\ControladorCancionIntHolder.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\sop_corba\ControladorCancionIntPackage\flujoBytesHolder.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\sop_corba\ControladorCancionIntPackage\CancionDTOHelper.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\servidor\controladores\ControladorGestionAdministradoresImpl.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\sop_corba\_ControladorCancionIntStub.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\sop_corba\ControladorCancionIntPOA.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\sop_corba\ControladorCancionInt.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\sop_corba\ControladorCancionIntPackage\ListCancionesHolder.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\sop_corba\ControladorCancionIntPackage\CancionDTOHolder.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\sop_corba\ControladorCancionIntHelper.java
+C:\Users\MXGALLEGO\Documents\NetBeansProjects\labSDFinal\CorbaRMIRest\ServidorCanciones\src\main\java\sop_corba\ControladorCancionIntPackage\flujoBytesHelper.java

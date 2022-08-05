@@ -1,5 +1,0 @@
-servidor\controladores\ControladorGestorCancionesImpl.class
-servidor\Repositorios\CancionRepository.class
-servidor\controladores\ControladorGestionAdministradoresImpl.class
-servidor\Repositorios\CancionRepositoryInt.class
-servidor\servicios\ServidorDeObjetos.class

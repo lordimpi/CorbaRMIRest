@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
-import servidor.DTO.CancionDTO;
+import servidor.DTO.CancionDTOO;
 import servidor.DTO.NotificacionDTO;
 
 public class ControladorGestionAdministradoresImpl extends UnicastRemoteObject implements ControladorGestionAdministradoresInt {
@@ -23,7 +23,7 @@ public class ControladorGestionAdministradoresImpl extends UnicastRemoteObject i
         this.referenciasAdministradores.add(objReferencia);
     }
 
-    public void notificarAdministradores(CancionDTO objCancion, int nCanciones) throws RemoteException {
+    public void notificarAdministradores(CancionDTOO objCancion, int nCanciones) throws RemoteException {
         NotificacionDTO objNotificacion = new NotificacionDTO(objCancion, nCanciones);
         for (AdministradorCallbackInt referencia : referenciasAdministradores) {
             referencia.notificarNuevaCancion(objNotificacion);

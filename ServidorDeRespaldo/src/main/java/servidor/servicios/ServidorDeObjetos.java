@@ -22,13 +22,13 @@ public class ServidorDeObjetos {
     public static void main(String[] args) {
        
         try {
-            String[] vectorDatosLocalizarNS = new String[4];//almacena la información para localizar el ns
-            vectorDatosLocalizarNS[0] = "-ORBInitialHost";
-            System.out.println("Ingrese la dirección IP donde escucha el n_s");
-            vectorDatosLocalizarNS[1] = UtilidadesConsola.leerCadena();
-            vectorDatosLocalizarNS[2] = "-ORBInitialPort";
-            System.out.println("Ingrese el puerto donde escucha el n_s");
-            vectorDatosLocalizarNS[3] = UtilidadesConsola.leerCadena();
+            String[] vectorDatosLocalizarNS = new String[4];
+        vectorDatosLocalizarNS[0] = "-ORBInitialHost";
+        //System.out.println("Ingrese la dirección IP donde escucha el n_s");
+        vectorDatosLocalizarNS[1] = "localhost";
+        vectorDatosLocalizarNS[2] = "-ORBInitialPort";
+        //System.out.println("Ingrese el puerto donde escucha el n_s");
+        vectorDatosLocalizarNS[3] = "2021";
             
             CancionRepository objRepository = new CancionRepository();
             ControladorGestorCancionesImpl objRemotoGestionCanciones = new ControladorGestorCancionesImpl(objRepository);

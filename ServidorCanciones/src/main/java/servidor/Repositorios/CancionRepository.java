@@ -6,11 +6,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import servidor.DTO.CancionDTO;
+import servidor.DTO.CancionDTOO;
 
 public class CancionRepository implements CancionRepositoryInt {
 
-    private final ArrayList<CancionDTO> listaCanciones;
+    private final ArrayList<CancionDTOO> listaCanciones;
 
     public CancionRepository() {
         this.listaCanciones = new ArrayList();
@@ -32,7 +32,7 @@ public class CancionRepository implements CancionRepositoryInt {
     }
 
     @Override
-    public boolean registrarCancion(CancionDTO objCancion) {
+    public boolean registrarCancion(CancionDTOO objCancion) {
 
         boolean bandera;
         objCancion.setId(listaCanciones.size() + 1);
@@ -49,7 +49,7 @@ public class CancionRepository implements CancionRepositoryInt {
         return bandera;
     }
 
-    public ArrayList<CancionDTO> listarCanciones() {
+    public ArrayList<CancionDTOO> listarCanciones() {
         return this.listaCanciones;
     }
 

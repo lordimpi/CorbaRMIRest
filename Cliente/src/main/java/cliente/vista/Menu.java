@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import models.Usuario;
 import servicios.UsuarioServices;
-import servidor.DTO.CancionDTO;
+import servidor.DTO.CancionDTOO;
 import utilidades.UtilidadesAudio;
 import static utilidades.UtilidadesAudio.identificarExtencion;
 import utilidades.UtilidadesConsola;
@@ -34,18 +34,24 @@ public class Menu {
             opcion = UtilidadesConsola.leerEntero();
 
             switch (opcion) {
-                case 1 ->
+                case 1:
                     Opcion1();
-                case 2 ->
+                    break;
+                case 2:
                     Opcion2();
-                case 3 ->
+                    break;
+                case 3:
                     Opcion3();
-                case 4 ->
+                    break;
+                case 4:
                     Opcion4();
-                case 5 ->
+                    break;
+                case 5:
                     System.out.println("Salir...");
-                default ->
+                    break;
+                default:
                     System.out.println("Opción incorrecta");
+                    break;
             }
 
         } while (opcion != 5);
@@ -99,7 +105,7 @@ public class Menu {
             if (file.exists()) {
                 if (identificarExtencion(nombrecancion).equals("mp3")) {
 
-                    CancionDTO objCancion = UtilidadesAudio.leerMetadatos(nombrecancion);
+                    CancionDTOO objCancion = UtilidadesAudio.leerMetadatos(nombrecancion);
                     if (objCancion != null) {
                         byte[] arrayBytesCancion = UtilidadesAudio.obtenerBytesCancion(nombrecancion);
                         objCancion.setArrayBytes(arrayBytesCancion);
@@ -131,10 +137,10 @@ public class Menu {
 
         try {
 
-            ArrayList<CancionDTO> canciones = objRemoto.listarCanciones();
+            ArrayList<CancionDTOO> canciones = objRemoto.listarCanciones();
             if (!canciones.isEmpty()) {
                 System.out.println("==Canciones==");
-                for (CancionDTO cancion : canciones) {
+                for (CancionDTOO cancion : canciones) {
                     System.out.println("Id: " + cancion.getId());
                     System.out.println("Titulo " + cancion.getTitulo());
                     System.out.println("Artista " + cancion.getArtista());

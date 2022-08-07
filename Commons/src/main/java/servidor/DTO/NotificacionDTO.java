@@ -9,21 +9,21 @@ import java.time.LocalDate;
  */
 public class NotificacionDTO implements Serializable {
 
-    private CancionDTO objCancion;
+    private CancionDTOO objCancion;
     private int cantidadCanciones;
     LocalDate fecheHoy;
 
-    public NotificacionDTO(CancionDTO objCancion, int cantidadCanciones) {
+    public NotificacionDTO(CancionDTOO objCancion, int cantidadCanciones) {
         this.objCancion = objCancion;
         this.cantidadCanciones = cantidadCanciones;
         this.fecheHoy = LocalDate.now();
     }
 
-    public CancionDTO getObjCancion() {
+    public CancionDTOO getObjCancion() {
         return objCancion;
     }
 
-    public void setObjCancion(CancionDTO objCancion) {
+    public void setObjCancion(CancionDTOO objCancion) {
         this.objCancion = objCancion;
     }
 

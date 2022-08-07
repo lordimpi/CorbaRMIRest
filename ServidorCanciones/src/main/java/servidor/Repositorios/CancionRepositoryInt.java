@@ -2,12 +2,12 @@
 package servidor.Repositorios;
 
 import java.util.ArrayList;
-import servidor.DTO.CancionDTO;
+import servidor.DTO.CancionDTOO;
 
 public interface CancionRepositoryInt
 {    
-    public boolean registrarCancion(CancionDTO objCancion);   
-    public ArrayList<CancionDTO> listarCanciones();
+    public boolean registrarCancion(CancionDTOO objCancion);   
+    public ArrayList<CancionDTOO> listarCanciones();
 }
 
 

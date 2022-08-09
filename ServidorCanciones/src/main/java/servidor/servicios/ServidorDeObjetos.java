@@ -12,14 +12,13 @@ public class ServidorDeObjetos {
 
     public static void main(String args[]) throws RemoteException {
 
-        int numPuertoRMIRegistryServidorCanciones;
-        String direccionIpRMIRegistryServidorCanciones;
+        int numPuertoRMIRegistryServidorCanciones = 2020;
+        String direccionIpRMIRegistryServidorCanciones = "localhost";
 
-        System.out.println("Cual es el la dirección ip donde se encuentra  el rmiRegistry canciones");
+        /*System.out.println("Cual es el la dirección ip donde se encuentra  el rmiRegistry canciones");
         direccionIpRMIRegistryServidorCanciones = UtilidadesConsola.leerCadena();
         System.out.println("Cual es el número de puerto por el cual escucha el rmiRegistry canciones");
-        numPuertoRMIRegistryServidorCanciones = UtilidadesConsola.leerEntero();
-
+        numPuertoRMIRegistryServidorCanciones = UtilidadesConsola.leerEntero();*/
 
         CancionRepository objRepository = new CancionRepository();
         ControladorGestionAdministradoresImpl objRemotoGestionAdministradores = new ControladorGestionAdministradoresImpl();

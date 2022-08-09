@@ -11,13 +11,13 @@ public class ClienteDeObjetos {
 
     public static void main(String[] args) {
 
-        int numPuertoRMIRegistry = 0;
-        String direccionIpRMIRegistry = "";
+        int numPuertoRMIRegistry = 2020;
+        String direccionIpRMIRegistry = "localhost";
 
-        System.out.println("Cual es el la dirección ip donde se encuentra  el rmiregistry ");
+        /*System.out.println("Cual es el la dirección ip donde se encuentra  el rmiregistry ");
         direccionIpRMIRegistry = UtilidadesConsola.leerCadena();
         System.out.println("Cual es el número de puerto por el cual escucha el rmiregistry ");
-        numPuertoRMIRegistry = UtilidadesConsola.leerEntero();
+        numPuertoRMIRegistry = UtilidadesConsola.leerEntero();*/
 
         objRemoto = (ControladorGestorCancionInt) UtilidadesRegistroC.obtenerObjRemoto(direccionIpRMIRegistry, numPuertoRMIRegistry, "objServicioGestionCanciones");
         Menu objMenu = new Menu(objRemoto);

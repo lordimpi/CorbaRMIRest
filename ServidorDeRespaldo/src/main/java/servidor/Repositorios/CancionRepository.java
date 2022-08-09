@@ -30,7 +30,7 @@ public class CancionRepository implements CancionRepositoryInt
     {   int varIncremento=listaCanciones.size()+1;
         boolean bandera=true;
         try {
-            File objFile= new File("misCanciones/copia"+nombreCancion+"_"+varIncremento+".mp3");// archivo donde se almacenara la canción
+            File objFile= new File("misCanciones/copia_cancion"+"_"+varIncremento+".mp3");// archivo donde se almacenara la canción
             OutputStream output= new FileOutputStream(objFile);
             output.write(array);// escribiendo la canción en el archivo
             } catch (FileNotFoundException ex) {
@@ -49,7 +49,7 @@ public class CancionRepository implements CancionRepositoryInt
         objCancion.id=(this.listaCanciones.size());
         bandera=this.almacenarArchivo(objCancion.getAudio(),objCancion.getTitulo());
         this.listaCanciones.add(objCancion);
-        System.out.println("Archivo creado en el servidor de Respaldo");
+        System.out.println("\nArchivo creado en el servidor de Respaldo");
         System.out.println("Metadatos del archivo: ");
         System.out.println("titulo: " + objCancion.getTitulo());
         System.out.println("Artista: " + objCancion.getArtista());

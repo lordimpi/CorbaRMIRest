@@ -20,32 +20,6 @@ public class UsuarioServices {
         this.objClientePeticiones = ClientBuilder.newClient().register(new JacksonFeature());
     }
 
-    /*
-    public Cliente consultarCliente(Integer id) {
-        Cliente objCliente = null;
-
-        WebTarget target = this.objClientePeticiones.target(this.endPoint + "/" + id);
-
-        Builder objPeticion = target.request(MediaType.APPLICATION_JSON_TYPE);
-
-        objCliente = objPeticion.get(Cliente.class);
-
-        return objCliente;
-    }
-
-    public List<Cliente> listarClientes() {
-        List<Cliente> listaClientes = null;
-
-        WebTarget target = this.objClientePeticiones.target(this.endPoint);
-
-        Builder objPeticion = target.request(MediaType.APPLICATION_JSON);
-
-        listaClientes = objPeticion.get(new GenericType<List<Cliente>>() {
-        });
-
-        return listaClientes;
-    }
-     */
     public Usuario registrarUsuario(Usuario objUsuarioRegistar) {
         Usuario objUsuario = null;
         WebTarget target = this.objClientePeticiones.target(this.endPoint);
@@ -93,6 +67,31 @@ public class UsuarioServices {
         bandera = objPeticion.delete(Boolean.class);
 
         return bandera;
+    }
+    
+    public Cliente consultarCliente(Integer id) {
+        Cliente objCliente = null;
+
+        WebTarget target = this.objClientePeticiones.target(this.endPoint + "/" + id);
+
+        Builder objPeticion = target.request(MediaType.APPLICATION_JSON_TYPE);
+
+        objCliente = objPeticion.get(Cliente.class);
+
+        return objCliente;
+    }
+
+    public List<Cliente> listarClientes() {
+        List<Cliente> listaClientes = null;
+
+        WebTarget target = this.objClientePeticiones.target(this.endPoint);
+
+        Builder objPeticion = target.request(MediaType.APPLICATION_JSON);
+
+        listaClientes = objPeticion.get(new GenericType<List<Cliente>>() {
+        });
+
+        return listaClientes;
     }
      */
 }

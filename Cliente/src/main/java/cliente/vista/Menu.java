@@ -68,7 +68,8 @@ public class Menu {
         objUsuario.setEmail(UtilidadesConsola.leerCadena());
         System.out.println("Ingrese la contraseña: ");
         objUsuario.setContraseña(UtilidadesConsola.leerCadena());
-        if (objUsuarioServices.registrarUsuario(objUsuario) == null) {
+        objUsuario = objUsuarioServices.registrarUsuario(objUsuario);
+        if (objUsuario == null) {
             System.out.println("No se pudo registrar el usuario...\n");
             return;
         }

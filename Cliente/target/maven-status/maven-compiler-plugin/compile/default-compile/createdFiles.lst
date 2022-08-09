@@ -1,2 +1,3 @@
 cliente\vista\Menu.class
+servicios\UsuarioServices.class
 cliente\servicios\ClienteDeObjetos.class
